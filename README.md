@@ -12,6 +12,7 @@ Cobalt is a command-line browser that reads Relax, WIG and RIM code.
 Cobaltium is the base for it, the core part of it, the language reader.
 Cobaltium SrcView is an in-browser source code viewer.
 
+And no, Cobalt's name isn't inspired by Chrome. It just happened to be an element, and I thought that the base could be named Cobaltium (like Chromium). Cobaltium is inspired by Chromium.
 # What's this thing written in?
 Relax, WIG, RIM and Cobaltium are written in Crystal.
 
