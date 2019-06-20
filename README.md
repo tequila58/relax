@@ -7,12 +7,9 @@ WIG stands for `Water Is Good` and is the equivalent of CSS.
 # RIM
 RIM stands for `Relax Interactive Module` and is responsible for the user being able to interact with the site.
 
-# Cobalt/Cobaltium
-Cobalt is a command-line browser that reads Relax, WIG and RIM code.
-Cobaltium is the base for it, the core part of it, the language reader.
-Cobaltium SrcView is an in-browser source code viewer.
+# Cobaltium
+Cobaltium is the interpreter of Relax, WIG and RIM.
 
-And no, Cobalt's name isn't inspired by Chrome. It just happened to be an element, and I thought that the base could be named Cobaltium (like Chromium). Cobaltium is inspired by Chromium.
 # What's this thing written in?
 Relax, WIG, RIM and Cobaltium are written in Crystal.
 
@@ -22,32 +19,34 @@ Crystal is easy, sleek, fast and can compile to machine language.
 # Syntax
 Relax
 ```
-[relax]
-  [info]
-    [wig] style.wig [.wig] // specifies directory of WIG code
-    [rim] interact.rim [.rim] // specifies directory of RIM code
-  [.info]
-  [main] // main, equivalent of <body>
-    [h mh]Hello![.h] // header with id "mh"
-    [e.] // new line (empty space)
-    [p]This is a simple page made in Relax - the command line website language[.p] // a paragraph
-    [btn action="gtp2"]Click me![.btn] // a button with the action gtp2 (RIM)
-  [.main]
-[.relax]
+[wig] style.wig [.wig]
+[rim] interact.rim [.rim]
+[h id::mh]Hello![.h]
+[e.]
+[p]This is a simple page made in Relax - the command line website language[.p]
+[btn action="gtp2"]Click me![.btn]
 ```
+Let's deconstruct:
+`[wig]` specifies the directory of the style of style.
+`[rim]` specifies the directory of the interactive module
+`[h id::mh]` creates a heading with the ID `mh`
+`[e.]` new line
+`[btn action::mbtn]` button with the RIM action `mbtn`
+
 WIG
 ```
-relax
-bgcolor gray // changes the background color to gray
-relax
+relax::start
+font gray
+relax::end
 
-mh
-font bold // changes the color to bold
-mh
+mh::start
+font red
+mh::end
 ```
+
 RIM
 ```
-gtp2{
-  ontype::click::goto example.com/page2 // if you type "click" you click the button gtp2 and you go to example.com/page2
-}
+gtp2::start
+  ontype::click::goto example.com/page2
+gtp2::end
 ```
